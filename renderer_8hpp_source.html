@@ -315,49 +315,49 @@ $(function() {
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">case</span> Op::Add: {</div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      <span class="keywordflow">if</span> (args[0]-&gt;is_string() &amp;&amp; args[1]-&gt;is_string()) {</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        make_result(args[0]-&gt;get_ref&lt;const std::string&amp;&gt;() + args[1]-&gt;get_ref&lt;const std::string&amp;&gt;());</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        make_result(args[0]-&gt;get_ref&lt;const json::string_t&amp;&gt;() + args[1]-&gt;get_ref&lt;const json::string_t&amp;&gt;());</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (args[0]-&gt;is_number_integer() &amp;&amp; args[1]-&gt;is_number_integer()) {</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        make_result(args[0]-&gt;get&lt;int&gt;() + args[1]-&gt;get&lt;int&gt;());</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        make_result(args[0]-&gt;get&lt;const json::number_integer_t&gt;() + args[1]-&gt;get&lt;const json::number_integer_t&gt;());</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        make_result(args[0]-&gt;get&lt;double&gt;() + args[1]-&gt;get&lt;double&gt;());</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;        make_result(args[0]-&gt;get&lt;const json::number_float_t&gt;() + args[1]-&gt;get&lt;const json::number_float_t&gt;());</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      }</div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keywordflow">case</span> Op::Subtract: {</div>
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      <span class="keywordflow">if</span> (args[0]-&gt;is_number_integer() &amp;&amp; args[1]-&gt;is_number_integer()) {</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        make_result(args[0]-&gt;get&lt;int&gt;() - args[1]-&gt;get&lt;int&gt;());</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        make_result(args[0]-&gt;get&lt;const json::number_integer_t&gt;() - args[1]-&gt;get&lt;const json::number_integer_t&gt;());</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        make_result(args[0]-&gt;get&lt;double&gt;() - args[1]-&gt;get&lt;double&gt;());</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        make_result(args[0]-&gt;get&lt;const json::number_float_t&gt;() - args[1]-&gt;get&lt;const json::number_float_t&gt;());</div>
 <div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      }</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">case</span> Op::Multiplication: {</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
 <div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      <span class="keywordflow">if</span> (args[0]-&gt;is_number_integer() &amp;&amp; args[1]-&gt;is_number_integer()) {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        make_result(args[0]-&gt;get&lt;int&gt;() * args[1]-&gt;get&lt;int&gt;());</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        make_result(args[0]-&gt;get&lt;const json::number_integer_t&gt;() * args[1]-&gt;get&lt;const json::number_integer_t&gt;());</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        make_result(args[0]-&gt;get&lt;double&gt;() * args[1]-&gt;get&lt;double&gt;());</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        make_result(args[0]-&gt;get&lt;const json::number_float_t&gt;() * args[1]-&gt;get&lt;const json::number_float_t&gt;());</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;      }</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    <span class="keywordflow">case</span> Op::Division: {</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="keywordflow">if</span> (args[1]-&gt;get&lt;double&gt;() == 0) {</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="keywordflow">if</span> (args[1]-&gt;get&lt;const json::number_float_t&gt;() == 0) {</div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        throw_renderer_error(<span class="stringliteral">&quot;division by zero&quot;</span>, node);</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      }</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      make_result(args[0]-&gt;get&lt;double&gt;() / args[1]-&gt;get&lt;double&gt;());</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      make_result(args[0]-&gt;get&lt;const json::number_float_t&gt;() / args[1]-&gt;get&lt;const json::number_float_t&gt;());</div>
 <div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">case</span> Op::Power: {</div>
 <div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="keywordflow">if</span> (args[0]-&gt;is_number_integer() &amp;&amp; args[1]-&gt;get&lt;int&gt;() &gt;= 0) {</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordtype">int</span> result = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::pow(args[0]-&gt;get&lt;int&gt;(), args[1]-&gt;get&lt;int&gt;()));</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="keywordflow">if</span> (args[0]-&gt;is_number_integer() &amp;&amp; args[1]-&gt;get&lt;const json::number_integer_t&gt;() &gt;= 0) {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> result = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>json::number_integer_t<span class="keyword">&gt;</span>(std::pow(args[0]-&gt;get&lt;const json::number_integer_t&gt;(), args[1]-&gt;get&lt;const json::number_integer_t&gt;()));</div>
 <div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        make_result(result);</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordtype">double</span> result = std::pow(args[0]-&gt;get&lt;double&gt;(), args[1]-&gt;get&lt;int&gt;());</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> result = std::pow(args[0]-&gt;get&lt;const json::number_float_t&gt;(), args[1]-&gt;get&lt;const json::number_integer_t&gt;());</div>
 <div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        make_result(result);</div>
 <div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      }</div>
 <div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">case</span> Op::Modulo: {</div>
 <div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      make_result(args[0]-&gt;get&lt;int&gt;() % args[1]-&gt;get&lt;int&gt;());</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      make_result(args[0]-&gt;get&lt;const json::number_integer_t&gt;() % args[1]-&gt;get&lt;const json::number_integer_t&gt;());</div>
 <div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">case</span> Op::AtId: {</div>
 <div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> container = get_arguments&lt;1, 0, false&gt;(node)[0];</div>
@@ -384,19 +384,19 @@ $(function() {
 <div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keywordflow">case</span> Op::DivisibleBy: {</div>
 <div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> divisor = args[1]-&gt;get&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      make_result((divisor != 0) &amp;&amp; (args[0]-&gt;get&lt;int&gt;() % divisor == 0));</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> divisor = args[1]-&gt;get&lt;<span class="keyword">const</span> json::number_integer_t&gt;();</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      make_result((divisor != 0) &amp;&amp; (args[0]-&gt;get&lt;const json::number_integer_t&gt;() % divisor == 0));</div>
 <div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">case</span> Op::Even: {</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      make_result(get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;int&gt;() % 2 == 0);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      make_result(get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;const json::number_integer_t&gt;() % 2 == 0);</div>
 <div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keywordflow">case</span> Op::Exists: {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      <span class="keyword">auto</span>&amp;&amp; name = get_arguments&lt;1&gt;(node)[0]-&gt;get_ref&lt;<span class="keyword">const</span> std::string&amp;&gt;();</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      <span class="keyword">auto</span>&amp;&amp; name = get_arguments&lt;1&gt;(node)[0]-&gt;get_ref&lt;<span class="keyword">const</span> json::string_t&amp;&gt;();</div>
 <div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      make_result(data_input-&gt;contains(json::json_pointer(DataNode::convert_dot_to_ptr(name))));</div>
 <div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">case</span> Op::ExistsInObject: {</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      <span class="keyword">auto</span>&amp;&amp; name = args[1]-&gt;get_ref&lt;<span class="keyword">const</span> std::string&amp;&gt;();</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      <span class="keyword">auto</span>&amp;&amp; name = args[1]-&gt;get_ref&lt;<span class="keyword">const</span> json::string_t&amp;&gt;();</div>
 <div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      make_result(args[0]-&gt;find(name) != args[0]-&gt;end());</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">case</span> Op::First: {</div>
@@ -404,10 +404,10 @@ $(function() {
 <div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      data_eval_stack.push(result);</div>
 <div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keywordflow">case</span> Op::Float: {</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      make_result(std::stod(get_arguments&lt;1&gt;(node)[0]-&gt;get_ref&lt;const std::string&amp;&gt;()));</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      make_result(std::stod(get_arguments&lt;1&gt;(node)[0]-&gt;get_ref&lt;const json::string_t&amp;&gt;()));</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">case</span> Op::Int: {</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      make_result(std::stoi(get_arguments&lt;1&gt;(node)[0]-&gt;get_ref&lt;const std::string&amp;&gt;()));</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      make_result(std::stoi(get_arguments&lt;1&gt;(node)[0]-&gt;get_ref&lt;const json::string_t&amp;&gt;()));</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordflow">case</span> Op::Last: {</div>
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> result = &amp;get_arguments&lt;1&gt;(node)[0]-&gt;back();</div>
@@ -416,13 +416,13 @@ $(function() {
 <div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keywordflow">case</span> Op::Length: {</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> val = get_arguments&lt;1&gt;(node)[0];</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      <span class="keywordflow">if</span> (val-&gt;is_string()) {</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        make_result(val-&gt;get_ref&lt;<span class="keyword">const</span> std::string&amp;&gt;().length());</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        make_result(val-&gt;get_ref&lt;<span class="keyword">const</span> json::string_t&amp;&gt;().length());</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      } <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        make_result(val-&gt;size());</div>
 <div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      }</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">case</span> Op::Lower: {</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      std::string result = get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;std::string&gt;();</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      <span class="keyword">auto</span> result = get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;json::string_t&gt;();</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;      std::transform(result.begin(), result.end(), result.begin(), ::tolower);</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      make_result(std::move(result));</div>
 <div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    } <span class="keywordflow">break</span>;</div>
@@ -437,17 +437,17 @@ $(function() {
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      data_eval_stack.push(&amp;(*result));</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordflow">case</span> Op::Odd: {</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      make_result(get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;int&gt;() % 2 != 0);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      make_result(get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;const json::number_integer_t&gt;() % 2 != 0);</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordflow">case</span> Op::Range: {</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      std::vector&lt;int&gt; result(get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;int&gt;());</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      std::vector&lt;int&gt; result(get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;const json::number_integer_t&gt;());</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      std::iota(result.begin(), result.end(), 0);</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;      make_result(std::move(result));</div>
 <div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordflow">case</span> Op::Round: {</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> precision = args[1]-&gt;get&lt;<span class="keywordtype">int</span>&gt;();</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">double</span> result = std::round(args[0]-&gt;get&lt;double&gt;() * std::pow(10.0, precision)) / std::pow(10.0, precision);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">int</span> precision = args[1]-&gt;get&lt;<span class="keyword">const</span> json::number_integer_t&gt;();</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="keyword">const</span> <span class="keywordtype">double</span> result = std::round(args[0]-&gt;get&lt;const json::number_float_t&gt;() * std::pow(10.0, precision)) / std::pow(10.0, precision);</div>
 <div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      <span class="keywordflow">if</span> (precision == 0) {</div>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        make_result(<span class="keywordtype">int</span>(result));</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      } <span class="keywordflow">else</span> {</div>
@@ -461,7 +461,7 @@ $(function() {
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      data_eval_stack.push(result_ptr.get());</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    <span class="keywordflow">case</span> Op::Upper: {</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      std::string result = get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;std::string&gt;();</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      <span class="keyword">auto</span> result = get_arguments&lt;1&gt;(node)[0]-&gt;get&lt;json::string_t&gt;();</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      std::transform(result.begin(), result.end(), result.begin(), ::toupper);</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;      make_result(std::move(result));</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    } <span class="keywordflow">break</span>;</div>
@@ -521,7 +521,7 @@ $(function() {
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    } <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    <span class="keywordflow">case</span> Op::Join: {</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> args = get_arguments&lt;2&gt;(node);</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> separator = args[1]-&gt;get&lt;std::string&gt;();</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> separator = args[1]-&gt;get&lt;json::string_t&gt;();</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;      std::ostringstream os;</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      std::string sep;</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; value : *args[0]) {</div>
